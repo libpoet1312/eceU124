@@ -16,11 +16,22 @@ dlist_t* create_dlist(comparator_t cmp, printer_t printer) {
 }
 
 void clear_dlist(dlist_t* list) {
+  dnode_t* tmp_node;
+  dnode_t* curr;
+  //diatrexw tin lista kai diagrafw kathe stoixio tis
+  curr = list->head;
+  while (curr!=NULL) {
+    tmp_node = curr;
+    curr = curr->next;
+    free(tmp_node); //diagrafi tou node
+  }
+
 
 }
 
 void destroy_dlist(dlist_t* list) {
-
+  clear_dlist(list);
+  free(list);
 }
 
 int size(dlist_t* list) {
