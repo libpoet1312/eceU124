@@ -11,7 +11,7 @@ int student_cmp(type_t s1, type_t s2) {
 }
 
 void student_print(FILE* fp, type_t s, bool only_key) {
-    printf("edw\n");
+    //printf("edw\n");
     if(only_key)
         fprintf(fp, "%5d", s.aem);
     else
