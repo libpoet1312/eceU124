@@ -12,6 +12,9 @@ dlist_t* create_dlist(comparator_t cmp, printer_t printer) {
   list->head = list->tail = NULL;
   list->size = 0;
 
+  list->cmp = student_cmp;
+  list->printer = student_print; // MY CODE
+
   return list;
 }
 
@@ -164,7 +167,7 @@ type_t get_index(dlist_t* list, int index) {
 }
 
 bool rmv(dlist_t* list, type_t data) {
-  list->cmp = student_cmp;
+
   for(dnode_t* curr=list->head; curr!=NULL; curr=curr->next) {
     if (list->cmp(curr->data,data) == 0) {
 
@@ -289,7 +292,7 @@ void table2dlist(type_t table[], int table_size, dlist_t* list) {
 }
 
 void print(FILE* fp, dlist_t* list) {
-    list->printer = student_print; // MY CODE
+
     for(dnode_t* curr=list->head; curr!=NULL; curr=curr->next) {
       list->printer(fp, curr->data, false);
       putchar('\n');

@@ -24,10 +24,10 @@ dequeue_t* create_dequeue(printer_t printer) {
 
 void clear_dequeue(dequeue_t* queue) {
   dnode_t* curr = queue->list->head;
-  dnode_t* tmp_node;
+  //dnode_t* tmp_node;
 
   while (curr!=NULL) {
-    tmp_node = curr;
+    //tmp_node = curr;
     curr = curr->next;
     free(curr);
   }
