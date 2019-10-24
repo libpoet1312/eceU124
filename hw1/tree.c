@@ -27,12 +27,27 @@ tree_t* create_tree(comparator_t cmp, printer_t printer) {
   return tree;
 }
 
-void clear_tree(tree_t* tree) {
+void deleteTree(node_t* node) {
+  //incursive deletion
+  if (node->left) {
+    deleteTree(node->left);
+    free(node->left);
+  }
+  if (node->right) {
+    deleteTree(node->right);
+    free(node->right);
+  }
+}
 
+void clear_tree(tree_t* tree) {
+  node_t* node = tree->root;
+
+  deleteTree(node);
 }
 
 void destroy_tree(tree_t* tree) {
-
+  clear_tree(tree);
+  free(tree);
 }
 
 int size(tree_t* tree) {

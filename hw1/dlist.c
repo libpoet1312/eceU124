@@ -13,7 +13,7 @@ dlist_t* create_dlist(comparator_t cmp, printer_t printer) {
   list->size = 0;
 
   list->cmp = student_cmp;
-  list->printer = student_print; // MY CODE
+  list->printer = student_print;
 
   return list;
 }
